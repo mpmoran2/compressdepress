@@ -1,5 +1,11 @@
 import tkinter as tk
 from compressmodule import compress,decompress
+from tkinter import filedialog 
+
+# filedialog allows you to get files from your computer
+def open_file():
+    filename = filedialog.askopenfilename(initialdir='/',title="Select a File")
+    return filename
 
 def compression(i,o):
     compress(i,o)
@@ -10,23 +16,23 @@ def decompression(i,o):
 window = tk.Tk()
 
 window.title("Compression Engine")
-window.geometry("600x400")
+window.geometry("400x300")
 
 title = tk.Label(window,text="Compress Files")
 title.grid(row=0,column=1)
 
-input_entry = tk.Entry(window)
-output_entry = tk.Entry(window)
+# input_entry = tk.Entry(window)
+# output_entry = tk.Entry(window)
 
 input_label = tk.Label(window,text="File To Be Compressed")
 input_label.grid(row=1,column=0)
-input_entry.grid(row=1,column=1)
+# input_entry.grid(row=1,column=1)
 
-output_label = tk.Label(window,text="Name of Compressed File")
-output_label.grid(row=2,column=0)
-output_entry.grid(row=2,column=1)
+# output_label = tk.Label(window,text="Name of Compressed File")
+# output_label.grid(row=2,column=0)
+# output_entry.grid(row=2,column=1)
 
-compression_bttn = tk.Button(window,text="Compress",command=lambda:compression(input_entry.get(),output_entry.get()))
+compression_bttn = tk.Button(window,text="Compress",command=lambda:compression(open_file(),"compressedoutput1.txt"))
 compression_bttn.grid(row=3,column=1)
 
 label = tk.Label(window,text="")

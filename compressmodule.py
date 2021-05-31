@@ -9,8 +9,6 @@ def compress(inputfile,outputfile):
     compressed_file = open(outputfile, 'w')
     compressed_file.write(decoded_data)
 
-compress('demo.txt', 'ot.txt')
-
 def decompress(inputfile,outputfile):
     file_content = open(inputfile,'r').read()
     encoded_data = file_content.encode('utf-8')
@@ -20,4 +18,3 @@ def decompress(inputfile,outputfile):
     file.write(decoded_data)
     file.close() #just best practice to close it
 
-decompress('ot.txt', 'dc1.txt')
